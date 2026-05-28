@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Clinic Website Development Quotation - ImpactArrows</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="presentation-mode">
+
+    <!-- Top Navigation Controls -->
+    <header class="top-nav no-print">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+            </div>
+            
+            <div class="nav-controls">
+                <!-- View Toggle Buttons -->
+                <div class="toggle-group">
+                    <button id="btn-presentation" class="toggle-btn active" onclick="setViewMode('presentation')">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v10H4zM2 4h20v14H2zm8 14h4v3h-4z"/></svg>
+                        Presentation View
+                    </button>
+                    <button id="btn-document" class="toggle-btn" onclick="setViewMode('document')">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                        Document View
+                    </button>
+                </div>
+
+                <!-- Print & Interactive Buttons -->
+                <button class="action-btn primary-btn" onclick="window.print()">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    Save as PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Outer Container -->
+    <main class="main-wrapper">
+        <div id="deck" class="deck">
+
+            <!-- ==================== SLIDE 01: COVER ==================== -->
+            <section class="slide-card current" data-slide="1">
+                <div class="slide-decor decor-top-right"></div>
+                <div class="slide-decor decor-bottom-left"></div>
+                <span class="slide-number no-print">01</span>
+                
+                <div class="slide-content cover-grid">
+                    <div class="cover-left">
+                        <div class="brand-logo-container">
+                            <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img cover-logo">
+                        </div>
+                        <h1 class="main-title">QUOTATION</h1>
+                        <h2 class="sub-title">Doctor's Clinic<br><span>Website Development</span></h2>
+                        <div class="title-divider"></div>
+                        <p class="slogan-text">
+                            Modern, Responsive & Secure Clinic Website with Advanced Management System
+                        </p>
+                        
+                        <div class="meta-container">
+                            <div class="meta-item">
+                                <span class="meta-label">Prepared for:</span>
+                                <span class="meta-val highlight-val">Doctor's Clinic / Healthcare Center</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Prepared by:</span>
+                                <span class="meta-val">LALIT KUMAR</span>
+                                <span class="meta-sub">Website & App Developer</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-strip">
+                            <a href="tel:+917595989813" class="contact-link">
+                                📞 +91 7595 989 813
+                            </a>
+                            <a href="mailto:info@impactarrows.com" class="contact-link">
+                                ✉️ info@impactarrows.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cover-right">
+                        <div class="doctor-circle-wrapper">
+                            <div class="doctor-circle-border"></div>
+                            <!-- Loaded from generated image -->
+                            <img src="doctor_avatar.png" alt="Doctor" class="doctor-img">
+                            <div class="heartbeat-line">
+                                <svg viewBox="0 0 100 40">
+                                    <path d="M0,20 L30,20 L35,10 L40,30 L45,15 L50,25 L55,20 L100,20" fill="none" stroke="#f4511e" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="calendar-widget">
+                            <div class="cal-header">Date</div>
+                            <div class="cal-body">
+                                <span class="cal-day" id="cal-day-span">29</span>
+                                <span class="cal-month" id="cal-month-span">May 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 02: OVERVIEW ==================== -->
+            <section class="slide-card" data-slide="2">
+                <span class="slide-number no-print">02</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">📋</span> Project Overview
+                    </div>
+                </div>
+
+                <div class="slide-content overview-grid">
+                    <div class="overview-left">
+                        <p class="overview-para highlight-para">
+                            We will develop a modern, responsive, and secure Doctor's Clinic Website with advanced clinic management functionality.
+                        </p>
+                        <p class="overview-para">
+                            The system will help manage patients, appointments, reports, OPD records, and online payments in a professional and digital way.
+                        </p>
+                        <p class="overview-para">
+                            The website will be designed for both desktop and mobile users, ensuring fast performance, easy navigation, and secure patient data handling.
+                        </p>
+
+                        <div class="pillars-grid">
+                            <div class="pillar-box">
+                                <div class="pillar-icon-wrapper blue">💻</div>
+                                <h4>Modern Design</h4>
+                            </div>
+                            <div class="pillar-box">
+                                <div class="pillar-icon-wrapper navy">🛡️</div>
+                                <h4>Secure & Reliable</h4>
+                            </div>
+                            <div class="pillar-box">
+                                <div class="pillar-icon-wrapper orange">👤</div>
+                                <h4>User Friendly</h4>
+                            </div>
+                            <div class="pillar-box">
+                                <div class="pillar-icon-wrapper green">⚡</div>
+                                <h4>Performance Optimized</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-right">
+                        <div class="clinic-frame">
+                            <img src="clinic_lobby.png" alt="Doctor's Clinic Lobby" class="clinic-img">
+                            <div class="frame-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 03: FEATURES 1 ==================== -->
+            <section class="slide-card" data-slide="3">
+                <span class="slide-number no-print">03</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">🛠️</span> Features Included
+                    </div>
+                </div>
+
+                <div class="slide-content features-half-grid">
+                    <!-- Column 1: Website Features -->
+                    <div class="feature-column">
+                        <div class="column-bar dark-bar">1. WEBSITE FEATURES</div>
+                        <div class="feature-card-content">
+                            <ul class="features-list blue-bullets">
+                                <li><span>Modern Responsive Design</span></li>
+                                <li><span>Mobile Friendly Interface</span></li>
+                                <li><span>Fast Loading Website</span></li>
+                                <li><span>SEO Friendly Structure</span></li>
+                                <li><span>SSL Security Setup</span></li>
+                                <li><span>Contact & Inquiry Forms</span></li>
+                                <li><span>WhatsApp Integration</span></li>
+                            </ul>
+                            
+                            <div class="mockup-frame monitor-frame">
+                                <div class="monitor-screen">
+                                    <div class="mock-website-preview">
+                                        <div class="preview-header">
+                                            <span class="preview-dot"></span>
+                                            <span class="preview-dot"></span>
+                                            <span class="preview-dot"></span>
+                                        </div>
+                                        <div class="preview-hero">
+                                            <div class="hero-left-line"></div>
+                                            <div class="hero-right-circle"></div>
+                                        </div>
+                                        <div class="preview-body-grid">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="monitor-stand"></div>
+                                <div class="monitor-base"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Clinic Management -->
+                    <div class="feature-column">
+                        <div class="column-bar orange-bar">2. CLINIC MANAGEMENT SYSTEM</div>
+                        <div class="feature-card-content">
+                            <ul class="features-list orange-bullets">
+                                <li><span>Patient Management</span></li>
+                                <li><span>Doctor Management</span></li>
+                                <li><span>Appointment Scheduling</span></li>
+                                <li><span>OPD ID Generation System</span></li>
+                                <li><span>Patient Records Management</span></li>
+                                <li><span>Admin Dashboard</span></li>
+                            </ul>
+
+                            <button class="demo-launcher-btn" onclick="openDashboardDemo(event)">
+                                ⚡ Launch Live Dashboard Demo
+                            </button>
+
+                            <div class="mockup-frame dashboard-frame" onclick="openDashboardDemo(event)" style="cursor: pointer; position: relative;">
+                                <div class="click-to-play-overlay">
+                                    <span>Click to Preview Admin Panel</span>
+                                </div>
+                                <div class="laptop-screen">
+                                    <div class="mock-dashboard-preview">
+                                        <div class="dash-sidebar">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <div class="dash-content">
+                                            <div class="dash-header"></div>
+                                            <div class="dash-widgets">
+                                                <div class="widget"></div>
+                                                <div class="widget"></div>
+                                            </div>
+                                            <div class="dash-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="laptop-keyboard"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 04: FEATURES 2 ==================== -->
+            <section class="slide-card" data-slide="4">
+                <span class="slide-number no-print">04</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">🛠️</span> Features Included
+                    </div>
+                </div>
+
+                <div class="slide-content features-half-grid">
+                    <!-- Column 3: Report Upload & Download -->
+                    <div class="feature-column">
+                        <div class="column-bar green-bar">3. REPORT UPLOAD & DOWNLOAD PANEL</div>
+                        <div class="feature-card-content">
+                            <ul class="features-list green-bullets">
+                                <li><span>Upload Medical Reports</span></li>
+                                <li><span>Download Reports Using OPD ID</span></li>
+                                <li><span>Secure Patient Access</span></li>
+                                <li><span>PDF Report Support</span></li>
+                                <li><span>Search & Filter System</span></li>
+                            </ul>
+
+                            <!-- Interactive Medical Report Simulation -->
+                            <div class="interactive-reports-box">
+                                <div class="sim-header">
+                                    <span>Patient Report Portal</span>
+                                </div>
+                                <div class="sim-body">
+                                    <p class="sim-info">Try entering <strong>OPD-101</strong>, <strong>OPD-102</strong> or <strong>OPD-103</strong>:</p>
+                                    <div class="sim-search-bar">
+                                        <input type="text" id="opd-input" placeholder="Enter OPD ID..." class="opd-input-field">
+                                        <button onclick="simulateReportSearch()" class="sim-search-btn">Search</button>
+                                    </div>
+                                    
+                                    <!-- Results Box -->
+                                    <div id="report-results" class="report-results-container">
+                                        <div class="result-placeholder">Enter ID above to search</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Booking & Payments -->
+                    <div class="feature-column">
+                        <div class="column-bar purple-bar">4. BOOKING & PAYMENT FEATURES</div>
+                        <div class="feature-card-content">
+                            <ul class="features-list purple-bullets">
+                                <li><span>Online Appointment Booking</span></li>
+                                <li><span>Payment Gateway Integration</span></li>
+                                <li><span>Booking Confirmation Notifications</span></li>
+                                <li><span>Email & WhatsApp Alerts</span></li>
+                            </ul>
+
+                            <div class="phone-mockup-wrapper">
+                                <div class="phone-case">
+                                    <div class="phone-screen">
+                                        <div class="phone-status-bar">
+                                            <span>9:41</span>
+                                            <span>🔋</span>
+                                        </div>
+                                        <div class="phone-app-content">
+                                            <div class="app-card">
+                                                <h4>Appointment Payment</h4>
+                                                <p class="payment-desc">Consultation Fee</p>
+                                                <div class="payment-amount">₹500.00</div>
+                                                <button class="pay-btn" onclick="simulatePaymentClick(this)">PAY NOW</button>
+                                                <div class="payment-logos">
+                                                    <span>VISA</span>
+                                                    <span>UPI</span>
+                                                    <span>GPay</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 05: ADDITIONAL ==================== -->
+            <section class="slide-card" data-slide="5">
+                <span class="slide-number no-print">05</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">➕</span> Additional Features
+                    </div>
+                </div>
+
+                <div class="slide-content add-features-grid">
+                    <div class="add-left">
+                        <div class="column-bar dark-blue-bar">5. ADDITIONAL FEATURES</div>
+                        <ul class="features-list blue-bullets big-list">
+                            <li><span>Prescription Upload Option</span></li>
+                            <li><span>Gallery & Testimonials</span></li>
+                            <li><span>Multi-Department Support</span></li>
+                            <li><span>Analytics & Basic Reports</span></li>
+                            <li><span>Backup & Security Setup</span></li>
+                            <li><span>Blog / Health Tips Section</span></li>
+                            <li><span>FAQ Section</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="add-right">
+                        <div class="circles-badge-grid">
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">📤</div>
+                                <span>Prescription Upload</span>
+                            </div>
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">🖼️</div>
+                                <span>Gallery</span>
+                            </div>
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">🏢</div>
+                                <span>Departments</span>
+                            </div>
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">📈</div>
+                                <span>Analytics</span>
+                            </div>
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">🔒</div>
+                                <span>Backup & Security</span>
+                            </div>
+                            <div class="circle-badge-item">
+                                <div class="circle-icon">💬</div>
+                                <span>FAQ & Blog</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Consult Section -->
+                        <div class="consult-box">
+                            <div class="consult-text">
+                                <strong>Interactive Integration</strong>
+                                <p>All extra features work together to provide a seamless patient pathway.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==================== SLIDE 06: DETAILS ==================== -->
+            <section class="slide-card" data-slide="6">
+                <span class="slide-number no-print">06</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">📊</span> Delivery, Tech Stack & Support
+                    </div>
+                </div>
+
+                <div class="slide-content details-grid">
+                    <!-- Delivery Time Card -->
+                    <div class="detail-card green-accent">
+                        <div class="detail-icon-header">
+                            <span class="circle-icon green">📅</span>
+                            <h3>DELIVERY TIME</h3>
+                        </div>
+                        <div class="delivery-time-content">
+                            <div class="large-days">10 – 15</div>
+                            <div class="days-label">Working Days</div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Card -->
+                    <div class="detail-card orange-accent">
+                        <div class="detail-icon-header">
+                            <span class="circle-icon orange">⚙️</span>
+                            <h3>TECHNOLOGIES USED</h3>
+                        </div>
+                        <ul class="tech-list">
+                            <li><strong>HTML / CSS / JavaScript</strong></li>
+                            <li><strong>PHP / Laravel</strong> or <strong>Node.js</strong></li>
+                            <li><strong>MySQL Database</strong></li>
+                            <li><strong>Secure Admin Panel</strong></li>
+                        </ul>
+                        <div class="tech-logos">
+                            <span class="tech-badge html">HTML5</span>
+                            <span class="tech-badge css">CSS3</span>
+                            <span class="tech-badge js">JS</span>
+                            <span class="tech-badge php">PHP</span>
+                            <span class="tech-badge mysql">MySQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Support Card -->
+                    <div class="detail-card purple-accent">
+                        <div class="detail-icon-header">
+                            <span class="circle-icon purple">🎧</span>
+                            <h3>SUPPORT</h3>
+                        </div>
+                        <ul class="support-list">
+                            <li><strong>30 Days Free Technical Support</strong></li>
+                            <li><strong>Basic Training Included</strong></li>
+                            <li>Post-delivery assistance with dashboard walkthroughs</li>
+                        </ul>
+                        <div class="support-seal-badge">
+                            <div class="seal-inner">
+                                <span class="seal-num">30</span>
+                                <span class="seal-text">DAYS SUPPORT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 07: TERMS & THANK YOU ==================== -->
+            <section class="slide-card" data-slide="7">
+                <span class="slide-number no-print">07</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">📋</span> Terms & Conditions
+                    </div>
+                </div>
+
+                <div class="slide-content terms-thank-grid">
+                    <div class="terms-column">
+                        <ul class="terms-list">
+                            <li>The project timeline may vary based on content and client revisions.</li>
+                            <li>Extra custom features may increase the project cost and timeline.</li>
+                            <li>Client must provide all the necessary content, images, and details on time.</li>
+                            <li>We will not be responsible for any delay from the client side.</li>
+                            <li>Payment terms: <strong>50% Advance & 50% After Final Delivery.</strong></li>
+                        </ul>
+
+                        <div class="thank-banner">
+                            <h3>Thank You!</h3>
+                            <p>We look forward to working with you and helping your clinic grow digitally.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">LK</div>
+                            <div class="profile-meta">
+                                <h3>LALIT KUMAR</h3>
+                                <p>Website & App Developer</p>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-details-list">
+                            <a href="tel:+917595989813" class="profile-detail-item">
+                                <span class="pd-icon">📞</span>
+                                <div class="pd-text">
+                                    <span class="pd-label">Phone</span>
+                                    <span class="pd-val">+91 7595 989 813</span>
+                                </div>
+                            </a>
+                            <a href="mailto:info@impactarrows.com" class="profile-detail-item">
+                                <span class="pd-icon">✉️</span>
+                                <div class="pd-text">
+                                    <span class="pd-label">Email</span>
+                                    <span class="pd-val">info@impactarrows.com</span>
+                                </div>
+                            </a>
+                            <a href="https://www.impactarrows.com" target="_blank" class="profile-detail-item">
+                                <span class="pd-icon">🌐</span>
+                                <div class="pd-text">
+                                    <span class="pd-label">Website</span>
+                                    <span class="pd-val">www.impactarrows.com</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="quick-action-buttons">
+                            <a href="https://wa.me/917595989813?text=Hi%20Lalit,%20I%20am%20interested%20in%20your%20Doctor%20Clinic%20website%20proposal." target="_blank" class="qa-btn wa-btn">
+                                💬 WhatsApp Chat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Presentation Slide Controls -->
+        <div class="deck-controls no-print">
+            <button class="nav-arrow prev-arrow" onclick="changeSlide(-1)" id="prev-btn">
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="pagination-dots" id="dots-container">
+                <!-- Javascript will render dots -->
+            </div>
+            <button class="nav-arrow next-arrow" onclick="changeSlide(1)" id="next-btn">
+                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Interactive Cost Estimator Drawer (Sidebar Modal) -->
+    <div id="calculator-drawer" class="estimator-drawer no-print">
+        <div class="drawer-header">
+            <h3>Custom Project Estimator</h3>
+            <button class="close-drawer-btn" onclick="toggleEstimator()">×</button>
+        </div>
+        <div class="drawer-body">
+            <p class="drawer-info">Select optional add-ons to customize the quote to your requirements:</p>
+            
+            <div class="estimator-section">
+                <h4>Core Proposal</h4>
+                <div class="estimator-item selected disabled">
+                    <input type="checkbox" checked disabled id="opt-core">
+                    <label for="opt-core">
+                        <strong>Web Dev & CMS Bundle</strong>
+                        <p>All core features (Overview, CMS, Patient Report Portal, Booking & Payments)</p>
+                    </label>
+                    <span class="item-price">₹25,000</span>
+                </div>
+            </div>
+
+            <div class="estimator-section">
+                <h4>Domain & Hosting Extras</h4>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-hosting" onchange="recalculateCost()">
+                    <label for="opt-hosting">
+                        <strong>Premium Cloud Hosting (1 Year)</strong>
+                        <p>99.9% uptime, fast SSD cloud servers, SSL, automatic daily backups</p>
+                    </label>
+                    <span class="item-price">+₹4,500</span>
+                </div>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-domain" onchange="recalculateCost()">
+                    <label for="opt-domain">
+                        <strong>Custom Domain Registration (.com / .in)</strong>
+                        <p>1 year domain registration & DNS management setup</p>
+                    </label>
+                    <span class="item-price">+₹1,200</span>
+                </div>
+            </div>
+
+            <div class="estimator-section">
+                <h4>Integrations & Features</h4>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-sms" onchange="recalculateCost()">
+                    <label for="opt-sms">
+                        <strong>WhatsApp & SMS Gateway API</strong>
+                        <p>Send automated patient appointment confirmation & remind reports via SMS</p>
+                    </label>
+                    <span class="item-price">+₹3,000</span>
+                </div>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-logo" onchange="recalculateCost()">
+                    <label for="opt-logo">
+                        <strong>Custom Logo & Branding Package</strong>
+                        <p>Professional doctor/clinic logo design & social media banners</p>
+                    </label>
+                    <span class="item-price">+₹2,500</span>
+                </div>
+            </div>
+
+            <div class="estimator-section">
+                <h4>Support Extensions</h4>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-support" onchange="recalculateCost()">
+                    <label for="opt-support">
+                        <strong>1-Year Support & AMC extension</strong>
+                        <p>Extend the 30-day support to 365 days. Includes security updates & minor edits</p>
+                    </label>
+                    <span class="item-price">+₹6,000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="drawer-footer">
+            <div class="estimator-total">
+                <span>ESTIMATED TOTAL</span>
+                <strong id="estimator-total-price">₹25,000</strong>
+            </div>
+            <button class="apply-btn" onclick="applyCalculatorEstimate()">Apply to Quotation</button>
+        </div>
+    </div>
+    
+    <div id="drawer-overlay" class="drawer-overlay no-print" onclick="toggleEstimator()"></div>
+
+    <!-- Interactive Clinic Dashboard Modal Demo -->
+    <div id="dashboard-modal" class="dashboard-modal-overlay no-print" onclick="closeDashboardDemoOnOverlay(event)">
+        <div class="dashboard-modal-container">
+            <!-- Modal Header -->
+            <div class="db-modal-header">
+                <div class="db-title-area">
+                    <span class="db-status-dot pulse"></span>
+                    <h3>ImpactArrows Clinic Admin Panel <span class="db-badge-demo">Live Simulator</span></h3>
+                </div>
+                <button class="db-close-btn" onclick="closeDashboardDemo()">&times;</button>
+            </div>
+            
+            <!-- Modal Body (Split view: sidebar + content) -->
+            <div class="db-modal-body">
+                <aside class="db-sidebar">
+                    <button class="db-tab-link active" onclick="switchDbTab(event, 'db-overview')">
+                        <span class="db-tab-icon">🏠</span> Overview
+                    </button>
+                    <button class="db-tab-link" onclick="switchDbTab(event, 'db-appointments')">
+                        <span class="db-tab-icon">📅</span> Appointments
+                    </button>
+                    <button class="db-tab-link" onclick="switchDbTab(event, 'db-patients')">
+                        <span class="db-tab-icon">👥</span> Patient Registry
+                    </button>
+                    <button class="db-tab-link" onclick="switchDbTab(event, 'db-doctors')">
+                        <span class="db-tab-icon">🩺</span> Doctor Roster
+                    </button>
+                </aside>
+                
+                <main class="db-main-content">
+                    
+                    <!-- Tab Content: Overview -->
+                    <div id="db-overview" class="db-tab-content active">
+                        <div class="db-stats-grid">
+                            <div class="db-stat-card">
+                                <span class="db-stat-num" id="db-stat-patients">3</span>
+                                <span class="db-stat-label">Patients Registered</span>
+                                <span class="db-stat-change green">+100% today</span>
+                            </div>
+                            <div class="db-stat-card">
+                                <span class="db-stat-num" id="db-stat-bookings">3</span>
+                                <span class="db-stat-label">Today's Bookings</span>
+                                <span class="db-stat-change blue">Next appointment: 10:30 AM</span>
+                            </div>
+                            <div class="db-stat-card">
+                                <span class="db-stat-num" id="db-stat-doctors">3</span>
+                                <span class="db-stat-label">Active Doctors</span>
+                                <span class="db-stat-change green">All On-Duty</span>
+                            </div>
+                        </div>
+
+                        <div class="db-overview-columns">
+                            <div class="db-panel-card">
+                                <h4>Recent Activities</h4>
+                                <div class="db-activity-list" id="db-activity-list">
+                                    <div class="db-activity-item">
+                                        <span class="activity-time">09:15 AM</span>
+                                        <p>Patient <strong>Rajesh Kumar</strong> (OPD-101) registered.</p>
+                                    </div>
+                                    <div class="db-activity-item">
+                                        <span class="activity-time">09:30 AM</span>
+                                        <p>Patient <strong>Sunita Sharma</strong> (OPD-102) registered.</p>
+                                    </div>
+                                    <div class="db-activity-item">
+                                        <span class="activity-time">09:45 AM</span>
+                                        <p>Patient <strong>John Doe</strong> (OPD-103) registered.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="db-panel-card">
+                                <h4>Daily Registration Analytics</h4>
+                                <div class="db-chart-container">
+                                    <svg viewBox="0 0 400 150" class="db-vector-chart">
+                                        <!-- Grid lines -->
+                                        <line x1="0" y1="120" x2="400" y2="120" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4"/>
+                                        <line x1="0" y1="70" x2="400" y2="70" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4"/>
+                                        <line x1="0" y1="20" x2="400" y2="20" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4"/>
+                                        <!-- Fill Area -->
+                                        <path d="M 0 120 L 80 100 L 160 110 L 240 60 L 320 80 L 400 20 L 400 120 Z" fill="rgba(30, 136, 229, 0.1)"/>
+                                        <!-- Line chart -->
+                                        <path d="M 0 120 L 80 100 L 160 110 L 240 60 L 320 80 L 400 20" fill="none" stroke="var(--accent-blue)" stroke-width="3"/>
+                                        <!-- Points -->
+                                        <circle cx="80" cy="100" r="4" fill="var(--accent-blue)"/>
+                                        <circle cx="160" cy="110" r="4" fill="var(--accent-blue)"/>
+                                        <circle cx="240" cy="60" r="4" fill="var(--accent-blue)"/>
+                                        <circle cx="320" cy="80" r="4" fill="var(--accent-blue)"/>
+                                        <circle cx="400" cy="20" r="4" fill="var(--accent-blue)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content: Appointments -->
+                    <div id="db-appointments" class="db-tab-content">
+                        <div class="db-panel-split">
+                            <!-- Left: Form -->
+                            <div class="db-form-card">
+                                <h4>Schedule Appointment</h4>
+                                <form id="db-appointment-form" onsubmit="handleDbAppointmentSubmit(event)">
+                                    <div class="form-group">
+                                        <label for="db-apt-name">Patient Name</label>
+                                        <input type="text" id="db-apt-name" required placeholder="Enter full name...">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="db-apt-dept">Department</label>
+                                            <select id="db-apt-dept" onchange="updateDbDocOptions()">
+                                                <option value="General Medicine">General Medicine</option>
+                                                <option value="Pediatrics">Pediatrics</option>
+                                                <option value="Cardiology">Cardiology</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="db-apt-doc">Doctor</label>
+                                            <select id="db-apt-doc">
+                                                <option value="Dr. Lalit Kumar">Dr. Lalit Kumar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="db-apt-time">Time Slot</label>
+                                        <input type="time" id="db-apt-time" required value="13:00">
+                                    </div>
+                                    <button type="submit" class="db-submit-btn">Schedule Booking</button>
+                                </form>
+                            </div>
+                            <!-- Right: Table -->
+                            <div class="db-list-card">
+                                <h4>Today's Appointments</h4>
+                                <div class="db-table-scroll">
+                                    <table class="db-table" id="db-appointments-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Patient</th>
+                                                <th>Department</th>
+                                                <th>Doctor</th>
+                                                <th>Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Rajesh Kumar</td>
+                                                <td>General Medicine</td>
+                                                <td>Dr. Lalit Kumar</td>
+                                                <td>10:30 AM</td>
+                                                <td><span class="db-status-pill success">Checked In</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sunita Sharma</td>
+                                                <td>Pediatrics</td>
+                                                <td>Dr. Sarah Smith</td>
+                                                <td>11:15 AM</td>
+                                                <td><span class="db-status-pill warning">Waiting</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>John Doe</td>
+                                                <td>Cardiology</td>
+                                                <td>Dr. Ramesh Dev</td>
+                                                <td>12:00 PM</td>
+                                                <td><span class="db-status-pill success">Checked In</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content: Patient Registry -->
+                    <div id="db-patients" class="db-tab-content">
+                        <div class="db-panel-split">
+                            <!-- Left: Form -->
+                            <div class="db-form-card">
+                                <h4>Register New Patient</h4>
+                                <form id="db-patient-form" onsubmit="handleDbPatientSubmit(event)">
+                                    <div class="form-group">
+                                        <label for="db-pat-name">Full Name</label>
+                                        <input type="text" id="db-pat-name" required placeholder="Enter full name...">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="db-pat-age">Age</label>
+                                            <input type="number" id="db-pat-age" required min="1" max="120" placeholder="Age">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="db-pat-gender">Gender</label>
+                                            <select id="db-pat-gender">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="db-pat-phone">Phone Number</label>
+                                        <input type="tel" id="db-pat-phone" required placeholder="10-digit mobile...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="db-pat-report">Mock Medical Diagnosis (for Portal test)</label>
+                                        <input type="text" id="db-pat-report" required placeholder="e.g. Vitamin D deficiency check...">
+                                    </div>
+                                    <button type="submit" class="db-submit-btn success-btn">Register & Generate OPD ID</button>
+                                </form>
+                            </div>
+                            <!-- Right: Table -->
+                            <div class="db-list-card">
+                                <h4>Registered Patients (Database Records)</h4>
+                                <p class="db-table-hint">Generate OPD IDs here to search them on Slide 4!</p>
+                                <div class="db-table-scroll">
+                                    <table class="db-table" id="db-patients-table">
+                                        <thead>
+                                            <tr>
+                                                <th>OPD ID</th>
+                                                <th>Name</th>
+                                                <th>Age / Gender</th>
+                                                <th>Contact Phone</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>OPD-101</strong></td>
+                                                <td>Rajesh Kumar</td>
+                                                <td>38 / Male</td>
+                                                <td>+91 98765 43210</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>OPD-102</strong></td>
+                                                <td>Sunita Sharma</td>
+                                                <td>45 / Female</td>
+                                                <td>+91 87654 32109</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>OPD-103</strong></td>
+                                                <td>John Doe</td>
+                                                <td>29 / Male</td>
+                                                <td>+91 76543 21098</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content: Doctors -->
+                    <div id="db-doctors" class="db-tab-content">
+                        <div class="db-doctors-list">
+                            <!-- Doc 1 -->
+                            <div class="db-doc-card">
+                                <div class="doc-profile-avatar">LK</div>
+                                <div class="doc-card-body">
+                                    <h4>Dr. Lalit Kumar</h4>
+                                    <span class="doc-card-dept">General Medicine</span>
+                                    <div class="doc-status-control">
+                                        <span class="status-indicator-dot online" id="doc-status-indicator-1"></span>
+                                        <span class="status-indicator-text" id="doc-status-text-1">Available (In Cabin)</span>
+                                    </div>
+                                    <button class="doc-toggle-btn" onclick="toggleDoctorStatus(1)">Toggle Availability</button>
+                                </div>
+                            </div>
+                            <!-- Doc 2 -->
+                            <div class="db-doc-card">
+                                <div class="doc-profile-avatar ss">SS</div>
+                                <div class="doc-card-body">
+                                    <h4>Dr. Sarah Smith</h4>
+                                    <span class="doc-card-dept">Pediatrics</span>
+                                    <div class="doc-status-control">
+                                        <span class="status-indicator-dot online" id="doc-status-indicator-2"></span>
+                                        <span class="status-indicator-text" id="doc-status-text-2">Available (In Cabin)</span>
+                                    </div>
+                                    <button class="doc-toggle-btn" onclick="toggleDoctorStatus(2)">Toggle Availability</button>
+                                </div>
+                            </div>
+                            <!-- Doc 3 -->
+                            <div class="db-doc-card">
+                                <div class="doc-profile-avatar rd">RD</div>
+                                <div class="doc-card-body">
+                                    <h4>Dr. Ramesh Dev</h4>
+                                    <span class="doc-card-dept">Cardiology</span>
+                                    <div class="doc-status-control">
+                                        <span class="status-indicator-dot online" id="doc-status-indicator-3"></span>
+                                        <span class="status-indicator-text" id="doc-status-text-3">Available (In Cabin)</span>
+                                    </div>
+                                    <button class="doc-toggle-btn" onclick="toggleDoctorStatus(3)">Toggle Availability</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </main>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="db-modal-footer">
+                <div class="db-footer-status">
+                    <span>Database Connection: 🟢 Secured SSL</span>
+                    <span>SMS API: 🟢 Connected</span>
+                </div>
+                <button class="db-close-btn-footer" onclick="closeDashboardDemo()">Close Panel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="drawer-overlay" class="drawer-overlay no-print" onclick="toggleEstimator()"></div>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

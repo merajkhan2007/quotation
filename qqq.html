@@ -1,0 +1,553 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Doctor Clinic Quotation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef5ff,#dfefff);
+    padding:40px 15px;
+    color:#1f2937;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.quotation-card{
+    background:#fff;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 15px 50px rgba(0,0,0,0.12);
+    animation:fadeIn 1s ease;
+}
+
+/* HEADER */
+
+.top-header{
+    background:linear-gradient(135deg,#0f4c81,#1e88e5);
+    padding:60px 40px;
+    position:relative;
+    overflow:hidden;
+}
+
+.top-header::before{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-120px;
+    right:-80px;
+}
+
+.top-header::after{
+    content:'';
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    bottom:-80px;
+    left:-50px;
+}
+
+.badge{
+    display:inline-block;
+    background:#ffffff20;
+    color:#fff;
+    padding:10px 22px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:20px;
+    backdrop-filter:blur(10px);
+}
+
+.top-header h1{
+    color:#fff;
+    font-size:48px;
+    margin-bottom:10px;
+    position:relative;
+    z-index:2;
+}
+
+.top-header p{
+    color:#e7f2ff;
+    font-size:18px;
+    line-height:1.8;
+    max-width:750px;
+    position:relative;
+    z-index:2;
+}
+
+/* BODY */
+
+.content{
+    padding:50px 40px;
+}
+
+.section{
+    margin-bottom:45px;
+}
+
+.section-title{
+    font-size:28px;
+    color:#0f4c81;
+    margin-bottom:25px;
+    position:relative;
+    padding-left:18px;
+}
+
+.section-title::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:5px;
+    width:6px;
+    height:34px;
+    border-radius:10px;
+    background:#1e88e5;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.feature-box{
+    background:#f7fbff;
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+    border:1px solid #e3eefb;
+}
+
+.feature-box:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(30,136,229,0.12);
+}
+
+.feature-box h3{
+    color:#0f4c81;
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.feature-box ul{
+    list-style:none;
+}
+
+.feature-box ul li{
+    margin-bottom:10px;
+    position:relative;
+    padding-left:22px;
+    color:#555;
+}
+
+.feature-box ul li::before{
+    content:'✔';
+    position:absolute;
+    left:0;
+    color:#1e88e5;
+    font-weight:bold;
+}
+
+/* TABLE */
+
+.price-table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.price-table thead{
+    background:#0f4c81;
+    color:#fff;
+}
+
+.price-table th,
+.price-table td{
+    padding:18px;
+    text-align:left;
+}
+
+.price-table tbody tr{
+    border-bottom:1px solid #e5e7eb;
+    transition:0.3s;
+}
+
+.price-table tbody tr:hover{
+    background:#f7fbff;
+}
+
+.total-box{
+    margin-top:25px;
+    background:linear-gradient(135deg,#1e88e5,#0f4c81);
+    color:#fff;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.total-box h2{
+    font-size:38px;
+    margin-top:10px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.timeline-box{
+    background:#f7fbff;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    border:1px solid #e3eefb;
+}
+
+.timeline-box h3{
+    color:#1e88e5;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#f8fbff;
+    padding:40px;
+    text-align:center;
+}
+
+.footer h2{
+    color:#0f4c81;
+    margin-bottom:10px;
+}
+
+.footer p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* BUTTON */
+
+.download-btn{
+    margin-top:25px;
+    display:inline-block;
+    background:linear-gradient(135deg,#1e88e5,#0f4c81);
+    color:#fff;
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    .top-header{
+        padding:40px 25px;
+    }
+
+    .top-header h1{
+        font-size:34px;
+    }
+
+    .content{
+        padding:35px 20px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="quotation-card">
+
+    <!-- HEADER -->
+    <div class="top-header">
+
+        <div class="badge">
+            Professional Healthcare Website Solution
+        </div>
+
+        <h1>Doctor’s Clinic Website Development</h1>
+
+        <p>
+            Modern, secure and responsive clinic website with appointment booking,
+            clinic management system, OPD management, report upload/download,
+            payment integration and admin dashboard.
+        </p>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- FEATURES -->
+        <div class="section">
+
+            <h2 class="section-title">Features Included</h2>
+
+            <div class="grid">
+
+                <div class="feature-box">
+                    <h3>Website Features</h3>
+
+                    <ul>
+                        <li>Responsive Design</li>
+                        <li>SEO Friendly</li>
+                        <li>Fast Loading</li>
+                        <li>SSL Security</li>
+                        <li>WhatsApp Integration</li>
+                        <li>Contact Forms</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Clinic Management</h3>
+
+                    <ul>
+                        <li>Patient Management</li>
+                        <li>Doctor Management</li>
+                        <li>Appointment Scheduling</li>
+                        <li>OPD ID System</li>
+                        <li>Patient Records</li>
+                        <li>Admin Dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Reports Panel</h3>
+
+                    <ul>
+                        <li>Upload Reports</li>
+                        <li>Download by OPD ID</li>
+                        <li>PDF Support</li>
+                        <li>Secure Access</li>
+                        <li>Search & Filter</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Booking & Payment</h3>
+
+                    <ul>
+                        <li>Online Booking</li>
+                        <li>Payment Gateway</li>
+                        <li>Booking Notifications</li>
+                        <li>Email Alerts</li>
+                        <li>WhatsApp Alerts</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- COST -->
+        <div class="section">
+
+            <h2 class="section-title">Project Cost</h2>
+
+            <table class="price-table">
+
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Website Design & Development</td>
+                        <td>₹25,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>Clinic Management System</td>
+                        <td>Included</td>
+                    </tr>
+
+                    <tr>
+                        <td>Report Upload/Download Panel</td>
+                        <td>Included</td>
+                    </tr>
+
+                    <tr>
+                        <td>Booking & Payment Integration</td>
+                        <td>Included</td>
+                    </tr>
+
+                    <tr>
+                        <td>Admin Dashboard</td>
+                        <td>Included</td>
+                    </tr>
+
+                    <tr>
+                        <td>SEO & Security Setup</td>
+                        <td>Included</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="total-box">
+
+                <p>Total Project Cost</p>
+                <h2>₹25,000</h2>
+
+            </div>
+
+        </div>
+
+        <!-- TIMELINE -->
+
+        <div class="section">
+
+            <h2 class="section-title">Project Timeline</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-box">
+                    <h3>Planning</h3>
+                    <p>2 Days</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Design</h3>
+                    <p>3 Days</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Development</h3>
+                    <p>5 – 7 Days</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Delivery</h3>
+                    <p>10 – 15 Days</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SUPPORT -->
+
+        <div class="section">
+
+            <h2 class="section-title">Support Included</h2>
+
+            <div class="grid">
+
+                <div class="feature-box">
+                    <h3>Free Support</h3>
+                    <ul>
+                        <li>30 Days Free Support</li>
+                        <li>Bug Fixes</li>
+                        <li>Technical Assistance</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Training</h3>
+                    <ul>
+                        <li>Basic Admin Training</li>
+                        <li>Dashboard Guidance</li>
+                        <li>Website Management Help</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <h2>Thank You</h2>
+
+        <p>
+            We look forward to helping your clinic build a modern digital healthcare system.
+        </p>
+
+        <h3 style="margin-top:20px;color:#0f4c81;">
+            Meraj Khan
+        </h3>
+
+        <p>Website & App Developer</p>
+
+        <a href="#" class="download-btn" onclick="downloadQuote()">
+            Download Quotation
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+function downloadQuote(){
+
+    window.print();
+
+}
+
+</script>
+
+</body>
+</html>
+```

@@ -2,10 +2,11 @@
 
 // Global State
 let currentSlide = 1;
-const totalSlides = 7;
+const totalSlides = 10;
 let viewMode = 'presentation'; // 'presentation' or 'document'
 let basePrice = 25000;
 let estimatedTotal = 25000;
+let leadCount = 3;
 
 // ==========================================================================
 // 1. INITIALIZATION
@@ -75,6 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Recalculate price in estimator to make sure initial view is correct
     recalculateCost();
+    // Initialize ROI Calculator view
+    calculateRoiGrowth();
 });
 
 // ==========================================================================
@@ -185,7 +188,8 @@ function recalculateCost() {
         'opt-domain': 1200,
         'opt-sms': 3000,
         'opt-logo': 2500,
-        'opt-support': 6000
+        'opt-support': 6000,
+        'opt-leadgen': 3500
     };
     
     for (const [id, price] of Object.entries(addons)) {
@@ -205,7 +209,7 @@ function recalculateCost() {
 }
 
 function applyCalculatorEstimate() {
-    // Update main quote cost text (Slide 6)
+    // Update main quote cost text (Slide 9)
     const costDisplay = document.getElementById("cost-display-value");
     if (costDisplay) {
         costDisplay.textContent = `₹${estimatedTotal.toLocaleString('en-IN')}/-`;
@@ -219,18 +223,21 @@ function applyCalculatorEstimate() {
         }, 600);
     }
     
-    // Add visual details in table on Slide 6 (Dynamic Addons Rows)
+    // Add visual details in table on Slide 9 (Dynamic Addons Rows)
     updatePriceTableWithAddons();
+    
+    // Recalculate ROI payback period since the cost basis has changed
+    calculateRoiGrowth();
     
     // Close Drawer
     toggleEstimator();
     
-    // Auto jump to Slide 6 to see the cost update
+    // Auto jump to Slide 9 to see the cost update
     if (viewMode === 'presentation') {
-        goToSlide(6);
+        goToSlide(9);
     } else {
-        // Scroll to slide 6 in document mode
-        const costSlide = document.querySelector('.slide-card[data-slide="6"]');
+        // Scroll to slide 9 in document mode
+        const costSlide = document.querySelector('.slide-card[data-slide="9"]');
         if (costSlide) {
             costSlide.scrollIntoView({ behavior: 'smooth' });
         }
@@ -293,7 +300,8 @@ function updatePriceTableWithAddons() {
         { id: 'opt-domain', name: 'Custom Domain Registration', desc: '1 Year registration for .com or .in domain name', price: 1200 },
         { id: 'opt-sms', name: 'WhatsApp & SMS Gateway API Integration', desc: 'Auto appointment & report notification messages', price: 3000 },
         { id: 'opt-logo', name: 'Custom Logo & Branding Package', desc: 'Vector logo files & social marketing materials', price: 2500 },
-        { id: 'opt-support', name: 'Extended Technical Support (1 Year)', desc: 'Extend 30 days to 1 year support and updates', price: 6000 }
+        { id: 'opt-support', name: 'Extended Technical Support (1 Year)', desc: 'Extend 30 days to 1 year support and updates', price: 6000 },
+        { id: 'opt-leadgen', name: 'Lead Generation & SEO Funnels', desc: 'Landing pages, CTA widgets, and contact/newsletter lead capturing forms', price: 3500 }
     ];
     
     addonsList.forEach(addon => {
@@ -708,5 +716,311 @@ function addDbActivityLog(text) {
         <p>${text}</p>
     `;
     list.insertBefore(item, list.firstChild);
+}
+
+// Handle Lead Form Submit Simulation (from Admin Panel)
+function handleDbLeadSubmit(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById("db-lead-name");
+    const phoneInput = document.getElementById("db-lead-phone");
+    const interestSelect = document.getElementById("db-lead-interest");
+    const sourceSelect = document.getElementById("db-lead-source");
+    
+    if (!nameInput || !phoneInput || !interestSelect || !sourceSelect) return;
+    
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const interest = interestSelect.value;
+    const source = sourceSelect.value;
+    
+    // Increment count
+    leadCount++;
+    
+    // Append to Admin Leads Table
+    const tableBody = document.querySelector("#db-leads-table tbody");
+    if (tableBody) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${name}</td>
+            <td>${phone}</td>
+            <td>${interest}</td>
+            <td>${source}</td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        tableBody.insertBefore(tr, tableBody.firstChild);
+    }
+    
+    // Synchronize to Front-side slide leads table
+    const frontTbody = document.getElementById("front-leads-tbody");
+    if (frontTbody) {
+        const tr = document.createElement("tr");
+        tr.className = "lead-entry-flash";
+        tr.innerHTML = `
+            <td><strong>${name}</strong></td>
+            <td>${phone}</td>
+            <td><span class="service-details">${interest}</span></td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        frontTbody.insertBefore(tr, frontTbody.firstChild);
+    }
+    
+    // Update count labels
+    const statLeadsEl = document.getElementById("db-stat-leads");
+    if (statLeadsEl) {
+        statLeadsEl.textContent = leadCount;
+    }
+    const frontLeadsBadge = document.getElementById("front-leads-badge");
+    if (frontLeadsBadge) {
+        frontLeadsBadge.textContent = `Total: ${leadCount} Leads`;
+    }
+    
+    // Log Activity
+    addDbActivityLog(`New Lead Captured: <strong>${name}</strong> interested in ${interest} from ${source}.`);
+    
+    // Reset Form
+    nameInput.value = "";
+    phoneInput.value = "";
+    
+    // Alert user simulation
+    alert(`Lead Submission Simulated Successfully!\n\nName: ${name}\nPhone: ${phone}\nInterest: ${interest}\nSource: ${source}\n\nThis lead has been captured and added to both the front-side slide leads feed and the backend Admin Leads Manager database.`);
+}
+
+// Handle Front-Side Slide Lead Form Submit Simulation
+function handleFrontLeadSubmit(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById("front-lead-name");
+    const phoneInput = document.getElementById("front-lead-phone");
+    const interestSelect = document.getElementById("front-lead-interest");
+    const sourceSelect = document.getElementById("front-lead-source");
+    
+    if (!nameInput || !phoneInput || !interestSelect || !sourceSelect) return;
+    
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const interest = interestSelect.value;
+    const source = sourceSelect.value;
+    
+    // Increment count
+    leadCount++;
+    
+    // Prepend to Front-side leads table
+    const frontTbody = document.getElementById("front-leads-tbody");
+    if (frontTbody) {
+        const tr = document.createElement("tr");
+        tr.className = "lead-entry-flash";
+        tr.innerHTML = `
+            <td><strong>${name}</strong></td>
+            <td>${phone}</td>
+            <td><span class="service-details">${interest}</span></td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        frontTbody.insertBefore(tr, frontTbody.firstChild);
+    }
+    
+    // Synchronize to Admin Panel Leads Table
+    const adminTbody = document.querySelector("#db-leads-table tbody");
+    if (adminTbody) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${name}</td>
+            <td>${phone}</td>
+            <td>${interest}</td>
+            <td>${source}</td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        adminTbody.insertBefore(tr, adminTbody.firstChild);
+    }
+    
+    // Update count labels
+    const statLeadsEl = document.getElementById("db-stat-leads");
+    if (statLeadsEl) {
+        statLeadsEl.textContent = leadCount;
+    }
+    const frontLeadsBadge = document.getElementById("front-leads-badge");
+    if (frontLeadsBadge) {
+        frontLeadsBadge.textContent = `Total: ${leadCount} Leads`;
+    }
+    
+    // Log Activity
+    addDbActivityLog(`New Lead Captured (Front Landing Page): <strong>${name}</strong> interested in ${interest} from ${source}.`);
+    
+    // Reset Form
+    nameInput.value = "";
+    phoneInput.value = "";
+    
+    // Alert user simulation
+    alert(`Lead Captured on Frontend!\n\nName: ${name}\nPhone: ${phone}\nInterest: ${interest}\nSource: ${source}\n\nSuccess! The visitor's inquiry has been logged. The Leads Inbox widget on this slide and the background Admin Dashboard have updated automatically.`);
+}
+
+// ==========================================================================
+// 8. CTA & SEO ENGINE SIMULATION LOGIC
+// ==========================================================================
+
+// Update Google Search Result Snippet Preview in Real-time
+function updateGoogleSeoSnippet() {
+    const nameInput = document.getElementById("seo-input-name");
+    const specialtyInput = document.getElementById("seo-input-specialty");
+    const cityInput = document.getElementById("seo-input-city");
+    
+    const titleEl = document.getElementById("seo-preview-title");
+    const descEl = document.getElementById("seo-preview-desc");
+    
+    if (!nameInput || !specialtyInput || !cityInput || !titleEl || !descEl) return;
+    
+    const name = nameInput.value.trim() || "Your Clinic Name";
+    const specialty = specialtyInput.value.trim() || "Medical Services";
+    const city = cityInput.value.trim() || "Your City";
+    
+    titleEl.textContent = `${name} - Best ${specialty} in ${city} | ImpactArrows`;
+    descEl.textContent = `Book appointments online with ${name}. Offering modern healthcare, patient portals, and automated reminders in ${city}. Open Mon-Sat.`;
+}
+
+// Simulate clicks on Mobile CTA options
+function simulateCtaClick(type) {
+    const logEl = document.getElementById("cta-action-log");
+    const exitModal = document.getElementById("cta-exit-modal");
+    if (!logEl) return;
+    
+    if (type === 'call') {
+        logEl.innerHTML = `<span style="color: var(--accent-green); font-weight: 700;">[CTA Action: Call Hotline]</span><br>Simulating a mobile click on <strong>📞 CALL NOW</strong> header button.<br>Visitor device initiates a telephone call to <strong>+91 7595 989 813</strong>.`;
+        alert("Phone Call Simulated!\n\nThe visitor's device is now dialling the clinic hotline: +91 7595 989 813.");
+    } else if (type === 'whatsapp') {
+        logEl.innerHTML = `<span style="color: #25d366; font-weight: 700;">[CTA Action: WhatsApp Chat]</span><br>Simulating launch of WhatsApp chat.<br>Visitor is redirected to <strong>wa.me/917595989813</strong> with a pre-filled medical inquiry message.`;
+        alert("WhatsApp Chat Simulated!\n\nLaunching WhatsApp chat window on the visitor's device with a pre-filled inquiry message: 'Hi, I'm interested in booking a consultation.'");
+    } else if (type === 'exit') {
+        if (exitModal) {
+            exitModal.style.display = "block";
+            logEl.innerHTML = `<span style="color: var(--accent-orange); font-weight: 700;">[CTA Action: Exit Intent Triggered]</span><br>Simulated cursor leaving the screen boundary.<br><strong>Exit-intent popup card opened</strong>: capturing visitor contact info before they leave.`;
+        }
+    }
+}
+
+// Handle Exit-intent CTA Coupon Lead Form Submission
+function handleCtaLeadSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById("cta-lead-name");
+    const phoneInput = document.getElementById("cta-lead-phone");
+    const logEl = document.getElementById("cta-action-log");
+    const exitModal = document.getElementById("cta-exit-modal");
+    
+    if (!nameInput || !phoneInput) return;
+    
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const interest = "Exit Intent Coupon - Free Checkup";
+    const source = "Website CTA Widget";
+    
+    // Increment count
+    leadCount++;
+    
+    // Sync to Slide 5 Leads table
+    const frontTbody = document.getElementById("front-leads-tbody");
+    if (frontTbody) {
+        const tr = document.createElement("tr");
+        tr.className = "lead-entry-flash";
+        tr.innerHTML = `
+            <td><strong>${name}</strong></td>
+            <td>${phone}</td>
+            <td><span class="service-details">${interest}</span></td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        frontTbody.insertBefore(tr, frontTbody.firstChild);
+    }
+    
+    // Sync to Admin Panel CRM table
+    const adminTbody = document.querySelector("#db-leads-table tbody");
+    if (adminTbody) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${name}</td>
+            <td>${phone}</td>
+            <td>${interest}</td>
+            <td>${source}</td>
+            <td><span class="db-status-pill warning">New</span></td>
+        `;
+        adminTbody.insertBefore(tr, adminTbody.firstChild);
+    }
+    
+    // Update count labels
+    const statLeadsEl = document.getElementById("db-stat-leads");
+    if (statLeadsEl) {
+        statLeadsEl.textContent = leadCount;
+    }
+    const frontLeadsBadge = document.getElementById("front-leads-badge");
+    if (frontLeadsBadge) {
+        frontLeadsBadge.textContent = `Total: ${leadCount} Leads`;
+    }
+    
+    // Log in Admin
+    addDbActivityLog(`Exit Intent Lead Captured: <strong>${name}</strong> claimed Free Checkup coupon.`);
+    
+    if (logEl) {
+        logEl.innerHTML = `<span style="color: var(--accent-orange); font-weight: 700;">[Lead Captured via CTA]</span><br>Visitor <strong>${name}</strong> submitted phone <strong>${phone}</strong>.<br>Coupon code generated and synced immediately to the Leads Manager.`;
+    }
+    
+    nameInput.value = "";
+    phoneInput.value = "";
+    if (exitModal) exitModal.style.display = "none";
+    
+    alert(`Coupon Claimed Successfully!\n\nLead Name: ${name}\nPhone: ${phone}\n\nThis lead has been captured and bidirectionally synced to Slide 5's inbox and the background Admin Dashboard under source: 'Website CTA Widget'.`);
+}
+
+// ==========================================================================
+// 9. ROI & GROWTH CALCULATOR SIMULATION LOGIC
+// ==========================================================================
+function calculateRoiGrowth() {
+    const feeInput = document.getElementById("roi-consult-fee");
+    const trafficInput = document.getElementById("roi-traffic");
+    const convInput = document.getElementById("roi-conversion");
+    
+    const valFee = document.getElementById("val-consult-fee");
+    const valTraffic = document.getElementById("val-traffic");
+    const valConv = document.getElementById("val-conversion");
+    
+    const appointmentsEl = document.getElementById("roi-appointments");
+    const monthlyRevEl = document.getElementById("roi-monthly-rev");
+    const annualRevEl = document.getElementById("roi-annual-rev");
+    const paybackTextEl = document.getElementById("roi-payback-text");
+    
+    if (!feeInput || !trafficInput || !convInput) return;
+    
+    const fee = parseInt(feeInput.value);
+    const traffic = parseInt(trafficInput.value);
+    const conv = parseFloat(convInput.value);
+    
+    // Update input labels
+    if (valFee) valFee.textContent = `₹${fee.toLocaleString('en-IN')}`;
+    if (valTraffic) valTraffic.textContent = `${traffic.toLocaleString('en-IN')} visitors`;
+    if (valConv) valConv.textContent = `${conv.toFixed(1)}%`;
+    
+    // Calculations
+    const monthlyBookings = Math.round(traffic * (conv / 100));
+    const monthlyRevenue = monthlyBookings * fee;
+    const annualRevenue = monthlyRevenue * 12;
+    
+    // Update metric text displays
+    if (appointmentsEl) appointmentsEl.textContent = `${monthlyBookings} / mo`;
+    if (monthlyRevEl) monthlyRevEl.textContent = `₹${monthlyRevenue.toLocaleString('en-IN')}`;
+    if (annualRevEl) annualRevEl.textContent = `₹${annualRevenue.toLocaleString('en-IN')}`;
+    
+    // Calculate payback period dynamically based on the total quote cost
+    const costBasis = estimatedTotal || 25000;
+    if (paybackTextEl) {
+        if (monthlyRevenue > 0) {
+            const months = costBasis / monthlyRevenue;
+            if (months <= 0.1) {
+                paybackTextEl.textContent = `Recovers investment in just 3 days!`;
+            } else if (months <= 0.5) {
+                const days = Math.round(months * 30);
+                paybackTextEl.textContent = `Recovers investment in just ${days} days!`;
+            } else {
+                paybackTextEl.textContent = `Recovers investment in ${months.toFixed(1)} months!`;
+            }
+        } else {
+            paybackTextEl.textContent = `Projected ROI depends on bookings.`;
+        }
+    }
 }
 

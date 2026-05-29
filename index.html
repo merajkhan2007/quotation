@@ -339,9 +339,318 @@
                 </div>
             </section>
 
-            <!-- ==================== SLIDE 05: ADDITIONAL ==================== -->
+            <!-- ==================== SLIDE 05: LEAD GENERATION & CRM ==================== -->
             <section class="slide-card" data-slide="5">
                 <span class="slide-number no-print">05</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">🎯</span> Lead Generation & CRM Suite
+                    </div>
+                </div>
+
+                <div class="slide-content add-features-grid">
+                    <!-- Left: Interactive Visitor Form -->
+                    <div class="db-form-card" style="box-shadow: var(--shadow-md); border-color: rgba(244, 81, 30, 0.2);">
+                        <h4 style="color: var(--accent-orange);">Client-Facing Lead Capture</h4>
+                        <p class="db-table-hint">Test the visitor-facing landing page promo widget:</p>
+                        
+                        <form id="front-lead-form" onsubmit="handleFrontLeadSubmit(event)">
+                            <div class="form-group">
+                                <label for="front-lead-name">Visitor Name</label>
+                                <input type="text" id="front-lead-name" required placeholder="Visitor's full name...">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="front-lead-phone">Phone Number</label>
+                                    <input type="tel" id="front-lead-phone" required placeholder="Contact phone number...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="front-lead-interest">Inquiry Interest</label>
+                                    <select id="front-lead-interest">
+                                        <option value="General Health Checkup Package">General Health Checkup</option>
+                                        <option value="Cardiology Consultation Inquiry">Cardiology Consultation</option>
+                                        <option value="Dental Scaling Promo Booking">Dental Scaling Promo</option>
+                                        <option value="Free Pediatric Consultation Check">Free Pediatric Consultation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="front-lead-source">Lead Source</label>
+                                <select id="front-lead-source">
+                                    <option value="Google Search Ads">Google Ads Campaign</option>
+                                    <option value="Facebook Social Ad">Facebook Marketing</option>
+                                    <option value="Organic Search Result">Organic SEO</option>
+                                    <option value="Website CTA Widget">Website Call-to-Action</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="db-submit-btn" style="background-color: var(--accent-orange); margin-top: 12px; padding: 12px;">
+                                Submit Lead (Simulate Visitor)
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Real-time Leads Inbox -->
+                    <div class="db-list-card" style="box-shadow: var(--shadow-md); border-color: rgba(30, 136, 229, 0.2);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 6px; margin-bottom: 12px;">
+                            <h4 style="margin-bottom: 0; border-bottom: none;">Leads Inbox (Clinic Dashboard)</h4>
+                            <span class="db-status-pill warning" id="front-leads-badge" style="font-weight: 800; font-size: 10px; background-color: rgba(244, 81, 30, 0.1); color: var(--accent-orange);">Total: 3 Leads</span>
+                        </div>
+                        <p class="db-table-hint">This inbox updates in real-time when the form is submitted!</p>
+                        
+                        <div class="db-table-scroll" style="max-height: 250px;">
+                            <table class="db-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Inquiry Interest</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="front-leads-tbody">
+                                    <tr>
+                                        <td><strong>Amit Sharma</strong></td>
+                                        <td>+91 99887 76655</td>
+                                        <td><span class="service-details">General Health Checkup</span></td>
+                                        <td><span class="db-status-pill warning">New</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Priya Patel</strong></td>
+                                        <td>+91 88776 65544</td>
+                                        <td><span class="service-details">Free Pediatric Consultation</span></td>
+                                        <td><span class="db-status-pill success" style="background-color: #e3f2fd; color: var(--accent-blue);">Contacted</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Vikram Singh</strong></td>
+                                        <td>+91 77665 54433</td>
+                                        <td><span class="service-details">Dental Scaling Promo</span></td>
+                                        <td><span class="db-status-pill success">Converted</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 06: CTA & SEO ENGINE ==================== -->
+            <section class="slide-card" data-slide="6">
+                <span class="slide-number no-print">06</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">⚙️</span> CTA & SEO Engine
+                    </div>
+                </div>
+
+                <div class="slide-content add-features-grid">
+                    <!-- Left: Google Search Result Mockup & Editor -->
+                    <div class="db-form-card" style="box-shadow: var(--shadow-md); border-color: rgba(30, 136, 229, 0.2);">
+                        <h4 style="color: var(--primary-color);">Google SEO Snippet Preview</h4>
+                        <p class="db-table-hint">Type in the editor below to see how your clinic appears on Google Search:</p>
+                        
+                        <!-- Simulated Google Listing -->
+                        <div class="google-snippet-container" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 16px; font-family: Arial, sans-serif;">
+                            <div style="font-size: 12px; color: #202124; display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+                                <span style="background: #f1f3f4; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px;">🌐</span>
+                                <span>https://www.yourclinicdomain.com</span>
+                            </div>
+                            <h3 id="seo-preview-title" style="font-size: 18px; color: #1a0dab; font-weight: normal; margin: 0 0 4px 0; font-family: Arial, sans-serif; cursor: pointer; text-decoration: none;">
+                                Dr. Lalit Kumar's Clinic - Best General Medicine in Kolkata
+                            </h3>
+                            <p id="seo-preview-desc" style="font-size: 13px; color: #4d5156; margin: 0; line-height: 1.4; font-family: Arial, sans-serif;">
+                                Book appointments online with Dr. Lalit Kumar's Clinic. Offering modern healthcare, patient portals, and automated reminders in Kolkata. Open Mon-Sat.
+                            </p>
+                        </div>
+                        
+                        <!-- Real-time Inputs -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="seo-input-name">Clinic Name</label>
+                                <input type="text" id="seo-input-name" value="Dr. Lalit Kumar's Clinic" oninput="updateGoogleSeoSnippet()">
+                            </div>
+                            <div class="form-group">
+                                <label for="seo-input-specialty">Specialty</label>
+                                <input type="text" id="seo-input-specialty" value="General Medicine" oninput="updateGoogleSeoSnippet()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seo-input-city">City / Location</label>
+                            <input type="text" id="seo-input-city" value="Kolkata" oninput="updateGoogleSeoSnippet()">
+                        </div>
+                        
+                        <!-- PageSpeed & SEO metrics -->
+                        <div class="seo-metrics-grid">
+                            <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; text-align: center;">
+                                <span style="display: block; font-size: 10px; font-weight: 700; color: var(--text-light);">MOBILE SPEED</span>
+                                <span style="font-size: 14px; font-weight: 800; color: var(--accent-green);">⚡ 99 / 100</span>
+                            </div>
+                            <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; text-align: center;">
+                                <span style="display: block; font-size: 10px; font-weight: 700; color: var(--text-light);">SEO HEALTH</span>
+                                <span style="font-size: 14px; font-weight: 800; color: var(--accent-green);">📈 100%</span>
+                            </div>
+                            <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; text-align: center;">
+                                <span style="display: block; font-size: 10px; font-weight: 700; color: var(--text-light);">SECURITY</span>
+                                <span style="font-size: 14px; font-weight: 800; color: var(--accent-green);">🛡️ HTTPS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Phone Simulator showing interactive CTA actions -->
+                    <div class="db-list-card cta-simulator-card">
+                        <!-- Mini Phone view -->
+                        <div class="phone-case" style="width: 170px; height: 260px; flex-shrink: 0;">
+                            <div class="phone-screen" style="position: relative; background: #ffffff;">
+                                <!-- Phone Header -->
+                                <div class="phone-status-bar" style="background: var(--primary-color); color: #ffffff;">
+                                    <span>9:41</span>
+                                    <span>🔋</span>
+                                </div>
+                                <!-- Mock Webpage Header with Sticky CTA -->
+                                <div style="background: #f8fafc; border-bottom: 1px solid #cbd5e1; padding: 4px 8px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 8px; font-weight: 800; color: var(--primary-color);">Lalit Clinic</span>
+                                    <button onclick="simulateCtaClick('call')" style="background: var(--accent-green); color: #ffffff; border: none; font-size: 7px; padding: 3px 6px; border-radius: 3px; font-weight: 700; cursor: pointer;">
+                                        📞 CALL NOW
+                                    </button>
+                                </div>
+                                <!-- Mock Webpage Hero -->
+                                <div style="padding: 10px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
+                                    <h5 style="font-size: 9px; margin-bottom: 0;">Expert Medical Care</h5>
+                                    <p style="font-size: 6px; color: var(--text-light); line-height: 1.3; margin: 0;">We provide specialized treatments for heart, pediatric and general ailments.</p>
+                                    
+                                    <button onclick="simulateCtaClick('whatsapp')" style="background: #25d366; color: #ffffff; border: none; font-size: 7px; padding: 6px; border-radius: 4px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 3px;">
+                                        💬 CHAT ON WHATSAPP
+                                    </button>
+                                    
+                                    <!-- Embedded Exit Intent trigger button -->
+                                    <button onclick="simulateCtaClick('exit')" style="background: var(--accent-orange); color: #ffffff; border: none; font-size: 6px; padding: 4px; border-radius: 3px; font-weight: 600; cursor: pointer; border: 1px dashed #ffffff;">
+                                        Simulate Exit Intent Popup
+                                    </button>
+                                </div>
+                                <!-- Floating CTA Widget at bottom -->
+                                <div style="position: absolute; bottom: 4px; right: 4px;">
+                                    <div onclick="simulateCtaClick('whatsapp')" style="background: #25d366; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); color: white;">💬</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA Explanation & Action Logs -->
+                        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px;">
+                            <h4 style="margin-bottom: 4px; border-bottom: none; padding-bottom: 0;">Smart Call-To-Action (CTA) Actions</h4>
+                            <p class="db-table-hint">Test the sticky call headers and WhatsApp triggers on the mobile mockup.</p>
+                            
+                            <div id="cta-action-log" style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 6px; padding: 12px; font-size: 11px; min-height: 90px; color: var(--text-light); line-height: 1.4;">
+                                <span style="color: var(--accent-blue); font-weight: 700;">[CTA Engine Ready]</span><br>
+                                Click any CTA button in the phone simulator to observe visitor conversion flow.
+                            </div>
+                            
+                            <!-- Exit Intent Modal simulation inside slide -->
+                            <div id="cta-exit-modal" style="display: none; background: #fff8f6; border: 1px solid var(--accent-orange); border-radius: 8px; padding: 10px; animation: fadeIn 0.3s ease;">
+                                <h5 style="color: var(--accent-orange); font-size: 11px; margin-bottom: 4px;">🎁 Exit Intent Claim: Free Checkup</h5>
+                                <form id="cta-lead-form" onsubmit="handleCtaLeadSubmit(event)" style="display: flex; flex-direction: column; gap: 6px;">
+                                    <input type="text" id="cta-lead-name" required placeholder="Enter name..." style="padding: 4px 8px; font-size: 10px; border: 1px solid #cbd5e1; border-radius: 4px;">
+                                    <input type="tel" id="cta-lead-phone" required placeholder="Enter phone..." style="padding: 4px 8px; font-size: 10px; border: 1px solid #cbd5e1; border-radius: 4px;">
+                                    <button type="submit" style="background: var(--accent-orange); color: white; border: none; padding: 4px; font-size: 9px; font-weight: 700; border-radius: 4px; cursor: pointer;">Claim Free Coupon</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 07: ROI & GROWTH CALCULATOR ==================== -->
+            <section class="slide-card" data-slide="7">
+                <span class="slide-number no-print">07</span>
+                <div class="slide-header">
+                    <div class="header-logo">
+                        <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
+                    </div>
+                    <div class="header-section-title">
+                        <span class="title-icon">📈</span> ROI & Growth Calculator
+                    </div>
+                </div>
+
+                <div class="slide-content add-features-grid">
+                    <!-- Left: Interactive Sliders -->
+                    <div class="db-form-card" style="box-shadow: var(--shadow-md); border-color: rgba(67, 160, 71, 0.2); justify-content: center; gap: 16px;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 8px;">Clinic Growth Inputs</h4>
+                        <p class="db-table-hint">Adjust the sliders to project your clinic's digital growth potential:</p>
+                        
+                        <!-- Slider 1 -->
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">
+                                <span>Average Consult Fee</span>
+                                <span id="val-consult-fee" style="color: var(--primary-color);">₹500</span>
+                            </div>
+                            <input type="range" id="roi-consult-fee" min="100" max="2000" step="50" value="500" oninput="calculateRoiGrowth()" style="cursor: pointer; width: 100%; margin-top: 6px; accent-color: var(--accent-green);">
+                        </div>
+                        
+                        <!-- Slider 2 -->
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">
+                                <span>Monthly Website Traffic</span>
+                                <span id="val-traffic" style="color: var(--primary-color);">1,000 visitors</span>
+                            </div>
+                            <input type="range" id="roi-traffic" min="100" max="5000" step="100" value="1000" oninput="calculateRoiGrowth()" style="cursor: pointer; width: 100%; margin-top: 6px; accent-color: var(--accent-green);">
+                        </div>
+                        
+                        <!-- Slider 3 -->
+                        <div class="form-group" style="margin-bottom: 8px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">
+                                <span>Booking Conversion Rate</span>
+                                <span id="val-conversion" style="color: var(--primary-color);">4.0%</span>
+                            </div>
+                            <input type="range" id="roi-conversion" min="0.5" max="15" step="0.5" value="4" oninput="calculateRoiGrowth()" style="cursor: pointer; width: 100%; margin-top: 6px; accent-color: var(--accent-green);">
+                        </div>
+                    </div>
+
+                    <!-- Right: Dynamic Outputs -->
+                    <div class="db-list-card" style="box-shadow: var(--shadow-md); border-color: rgba(30, 136, 229, 0.2); justify-content: space-between; padding: 24px;">
+                        <h4 style="margin-bottom: 12px; color: var(--primary-color);">Projected Business Outcomes</h4>
+                        
+                        <div class="roi-metrics-grid">
+                            <!-- Metric 1 -->
+                            <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 10px; padding: 12px; display: flex; flex-direction: column;">
+                                <span style="font-size: 9px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">New Patient Bookings</span>
+                                <strong id="roi-appointments" style="font-size: 24px; font-weight: 850; color: var(--accent-blue); font-family: var(--font-heading); margin-top: 4px;">40 / mo</strong>
+                            </div>
+                            
+                            <!-- Metric 2 -->
+                            <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 10px; padding: 12px; display: flex; flex-direction: column;">
+                                <span style="font-size: 9px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Monthly Revenue Growth</span>
+                                <strong id="roi-monthly-rev" style="font-size: 24px; font-weight: 850; color: var(--accent-green); font-family: var(--font-heading); margin-top: 4px;">₹20,000</strong>
+                            </div>
+                        </div>
+
+                        <!-- Metric 3 (Full Width Annual Projection) -->
+                        <div style="background: linear-gradient(135deg, rgba(15, 76, 129, 0.04), rgba(30, 136, 229, 0.04)); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-size: 9px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Projected Annual Growth</span>
+                                <strong id="roi-annual-rev" style="font-size: 28px; font-weight: 900; color: var(--primary-color); font-family: var(--font-heading); margin-top: 4px;">₹2,40,000</strong>
+                            </div>
+                            <span style="font-size: 32px;">📈</span>
+                        </div>
+
+                        <!-- Payback Card Callout -->
+                        <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); border-radius: 12px; padding: 14px 20px; color: #ffffff; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-sm);">
+                            <div style="background: rgba(255, 255, 255, 0.15); width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0;">⏱️</div>
+                            <div>
+                                <span style="font-size: 9px; font-weight: 700; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Investment Payback Period</span>
+                                <strong id="roi-payback-text" style="display: block; font-size: 16px; font-weight: 800; font-family: var(--font-heading); margin-top: 2px;">Recovers project cost in 1.3 months!</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SLIDE 08: ADDITIONAL ==================== -->
+            <section class="slide-card" data-slide="8">
+                <span class="slide-number no-print">08</span>
                 <div class="slide-header">
                     <div class="header-logo">
                         <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
@@ -405,9 +714,9 @@
             </section>
 
 
-            <!-- ==================== SLIDE 06: DETAILS ==================== -->
-            <section class="slide-card" data-slide="6">
-                <span class="slide-number no-print">06</span>
+            <!-- ==================== SLIDE 09: DETAILS ==================== -->
+            <section class="slide-card" data-slide="9">
+                <span class="slide-number no-print">09</span>
                 <div class="slide-header">
                     <div class="header-logo">
                         <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
@@ -472,9 +781,9 @@
                 </div>
             </section>
 
-            <!-- ==================== SLIDE 07: TERMS & THANK YOU ==================== -->
-            <section class="slide-card" data-slide="7">
-                <span class="slide-number no-print">07</span>
+            <!-- ==================== SLIDE 10: TERMS & THANK YOU ==================== -->
+            <section class="slide-card" data-slide="10">
+                <span class="slide-number no-print">10</span>
                 <div class="slide-header">
                     <div class="header-logo">
                         <img src="imapctLogo.png" alt="ImpactArrows Logo" class="logo-img">
@@ -617,6 +926,14 @@
                     </label>
                     <span class="item-price">+₹2,500</span>
                 </div>
+                <div class="estimator-item">
+                    <input type="checkbox" id="opt-leadgen" onchange="recalculateCost()">
+                    <label for="opt-leadgen">
+                        <strong>Lead Generation & SEO Funnels</strong>
+                        <p>Custom landing pages, call-to-action widgets, and lead capturing forms integrated with the dashboard</p>
+                    </label>
+                    <span class="item-price">+₹3,500</span>
+                </div>
             </div>
 
             <div class="estimator-section">
@@ -670,6 +987,9 @@
                     <button class="db-tab-link" onclick="switchDbTab(event, 'db-doctors')">
                         <span class="db-tab-icon">🩺</span> Doctor Roster
                     </button>
+                    <button class="db-tab-link" onclick="switchDbTab(event, 'db-leads')">
+                        <span class="db-tab-icon">🎯</span> Leads Manager
+                    </button>
                 </aside>
                 
                 <main class="db-main-content">
@@ -691,6 +1011,11 @@
                                 <span class="db-stat-num" id="db-stat-doctors">3</span>
                                 <span class="db-stat-label">Active Doctors</span>
                                 <span class="db-stat-change green">All On-Duty</span>
+                            </div>
+                            <div class="db-stat-card">
+                                <span class="db-stat-num" id="db-stat-leads">3</span>
+                                <span class="db-stat-label">Captured Leads</span>
+                                <span class="db-stat-change orange">+1 New Lead</span>
                             </div>
                         </div>
 
@@ -930,6 +1255,90 @@
                                         <span class="status-indicator-text" id="doc-status-text-3">Available (In Cabin)</span>
                                     </div>
                                     <button class="doc-toggle-btn" onclick="toggleDoctorStatus(3)">Toggle Availability</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content: Leads Manager -->
+                    <div id="db-leads" class="db-tab-content">
+                        <div class="db-panel-split">
+                            <!-- Left: Form to simulate lead submission -->
+                            <div class="db-form-card">
+                                <h4>Simulate Lead Submission</h4>
+                                <p class="db-table-hint">Simulate a visitor filling out a lead-capture landing page:</p>
+                                <form id="db-lead-form" onsubmit="handleDbLeadSubmit(event)">
+                                    <div class="form-group">
+                                        <label for="db-lead-name">Visitor Name</label>
+                                        <input type="text" id="db-lead-name" required placeholder="Enter full name...">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="db-lead-phone">Phone Number</label>
+                                            <input type="tel" id="db-lead-phone" required placeholder="10-digit mobile...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="db-lead-interest">Inquiry Interest</label>
+                                            <select id="db-lead-interest">
+                                                <option value="General Health Checkup Package">General Health Checkup</option>
+                                                <option value="Cardiology Consultation Inquiry">Cardiology Consultation</option>
+                                                <option value="Dental Scaling Promo Booking">Dental Scaling Promo</option>
+                                                <option value="Free Pediatric Consultation Check">Free Pediatric Consultation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="db-lead-source">Lead Source</label>
+                                        <select id="db-lead-source">
+                                            <option value="Google Search Ads">Google Ads</option>
+                                            <option value="Facebook Social Ad">Facebook Campaign</option>
+                                            <option value="Organic Search Result">Organic SEO</option>
+                                            <option value="Website CTA Widget">Website Call-to-Action</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="db-submit-btn" style="background-color: var(--accent-orange);">Submit Mock Lead Form</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Right: Leads Table -->
+                            <div class="db-list-card">
+                                <h4>Captured Website Leads (CRM Registry)</h4>
+                                <p class="db-table-hint">Follow up on visitors requesting call-backs or health promos!</p>
+                                <div class="db-table-scroll">
+                                    <table class="db-table" id="db-leads-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Interest</th>
+                                                <th>Source</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Amit Sharma</td>
+                                                <td>+91 99887 76655</td>
+                                                <td>General Health Checkup</td>
+                                                <td>Google Search Ads</td>
+                                                <td><span class="db-status-pill warning">New</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya Patel</td>
+                                                <td>+91 88776 65544</td>
+                                                <td>Free Pediatric Consultation</td>
+                                                <td>Facebook Social Ad</td>
+                                                <td><span class="db-status-pill success" style="background-color: #e3f2fd; color: var(--accent-blue);">Contacted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vikram Singh</td>
+                                                <td>+91 77665 54433</td>
+                                                <td>Dental Scaling Promo</td>
+                                                <td>Organic Search Result</td>
+                                                <td><span class="db-status-pill success">Converted</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
